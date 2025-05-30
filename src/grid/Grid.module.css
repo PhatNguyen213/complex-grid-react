@@ -1,0 +1,22 @@
+:root {
+  --resizer-size: 4px;
+  --border-color: #707070;
+  --selection-color: #282828;
+  --resizing-color: #007fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  width: max-content;
+}
+
+.resizing {
+  cursor: nwse-resize;
+}
+
+.selection-box-info {
+  margin-top: 10px;
+}
