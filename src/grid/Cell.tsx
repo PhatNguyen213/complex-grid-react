@@ -1,5 +1,4 @@
 import { memo } from "react";
-import classes from "./Cell.module.css";
 import clsx from "clsx";
 
 type CellProps = {
@@ -11,17 +10,22 @@ type CellProps = {
 function Cell({ selected, resizing, handleResize }: CellProps) {
   return (
     <div
-      //   data-testid={`grid-cell-${i}`}
+      data-testid={`grid-cell`}
       className={clsx(
-        classes.cell,
-        selected && classes.selected,
-        selected && resizing && classes.resizing
+        "relative w-[100px] h-[100px]",
+        "border border-[var(--border-color)]",
+        selected && "bg-[var(--selection-color)]",
+        resizing && "bg-[var(--resizing-color)]"
       )}
     >
       <div
         draggable
         data-disableselect
-        className={classes.resizer}
+        className={clsx(
+          "cursor-nwse-resize absolute -bottom-px -right-[3px]",
+          "border border-x-transparent border-x-[length:var(--resizer-size)] border-t-[#989898] border-t-[length:var(--resizer-size)]",
+          "-rotate-45"
+        )}
         onMouseDown={handleResize}
       />
     </div>
